@@ -21,11 +21,11 @@ float coloredBitmap(int w, int h, char* unit) {
     if (strcmp(unit, "bt") == 0) {
         size = totalBits; // Size in bits
     } else if (strcmp(unit, "ko") == 0) {
-        size = totalBits / 1024.0; // Size in kilobits
+        size = totalBits / (1024.0 * 8); // Size in kilobits
     } else if (strcmp(unit, "mo") == 0) {
-        size = totalBits / (1024.0 * 1024.0); // Size in megabits
+        size = totalBits / (1024.0 * 1024.0 * 8); // Size in megabits
     } else if (strcmp(unit, "go") == 0) {
-        size = totalBits / (1024.0 * 1024.0 * 1024.0); // Size in gigabits
+        size = totalBits / (1024.0 * 1024.0 * 1024.0 * 8); // Size in gigabits
     } else {
         // If the unit is not recognized, return -1 as an error code
         printf("Invalid unit specified.\n");

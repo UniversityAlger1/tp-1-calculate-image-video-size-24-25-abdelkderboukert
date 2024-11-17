@@ -13,25 +13,21 @@ float video(int w, int h, int durationMovie, int durationCredits, int fps, char*
     // Bits per pixel for colored image (24 bits)
     int bitsPerPixel = 24;
 
-    // Calculate total bits for the colored section
-    int totalBitsIC = w * h * bitsPerPixel; // Total bits per frame
-    int totalImagesC = durationMovie * fps; // Total frames in colored section
-    float sizeInBits = totalImagesC * totalBitsIC; // Total size in bits
+    float clrImage = w * h * bitsPerPixel * durationMovie * fps;
+    float BImage = w * h * durationCredits * fps;
+    float sizeInBits = clrImage + BImage; // Add to total size in bits
 
-    // Calculate total bits for the black-and-white section
-    // Each pixel in black-and-white is 8 bits (1 byte)
-    int totalBitsBW = w * h * (durationCredits * fps); // Total bits for black-and-white section
-    sizeInBits += totalBitsBW; // Add to total size in bits
+
 
     // Convert size based on the requested unit
     if (strcmp(unit, "bt") == 0) {
         return sizeInBits / 8; // Convert to bytes
     } else if (strcmp(unit, "ko") == 0) {
-        return sizeInBits / 1024; // Convert to kilobits
+        return sizeInBits / (1024 * 8); // Convert to kilobits
     } else if (strcmp(unit, "mo") == 0) {
-        return sizeInBits / (1024 * 1024); // Convert to megabits
+        return sizeInBits / (1024 * 1024 * 8); // Convert to megabits
     } else if (strcmp(unit, "go") == 0) {
-        return sizeInBits / (1024 * 1024 * 1024); // Convert to gigabits
+        return sizeInBits / (1024 * 1024 * 1024 * 8); // Convert to gigabits
     } else {
         // If the unit is not recognized, return -1 or some error value
         return -1.0f;
