@@ -12,7 +12,7 @@
 //   colored video size (based on the unit passed parameter)
 float video(int w, int h, int durationMovie, int durationCredits, int fps, char* unit) {
     // Bits per pixel for colored image (24 bits)
-    int bitsPerPixel = 24;
+    float bitsPerPixel = 24;
 
     float clrImage = w * h * bitsPerPixel * durationMovie * fps;
     float BImage = w * h * durationCredits * fps;
