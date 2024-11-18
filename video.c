@@ -4,7 +4,7 @@
 
 // Parameters:
 //   w: width of the image
-//   h: height of the image
+//   h: height of the imag
 //   durationMovie: duration in seconds of the movie (colored image)
 //   durationCredits: duration in seconds of credits (black/white image)
 //   unit: Unit of the output value. It could be 'bt' for bytes, 'ko' for kilobits, 'mo' for megabits, 'go' for gigabits
